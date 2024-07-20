@@ -13,18 +13,19 @@ const minBreakpoints = {
   xl: "100%",
 };
 
-export const EditorContent: React.FC<EditorContentProps> = () => {
+export const EditorContent: React.FC<EditorContentProps> = ({ children }) => {
   const iframeRef = useRef(null);
 
   const { view } = usePreviewStore();
 
   return (
     <div className="flex-1 p-4 overflow-hidden mx-auto">
-      <IFrame
+      {/* <IFrame
         src={process.env.NEXT_PUBLIC_PREVIEW_URL as string}
         width={minBreakpoints[view]}
         ref={iframeRef}
-      />
+      /> */}
+      {children}
     </div>
   );
 };

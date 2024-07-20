@@ -10,9 +10,6 @@ export const EditorSidebar = () => {
 
   const sections = getSections({ pageName: "homepage__1" });
 
-  console.log("IN SIDEBAR SECTIONS", sections);
-  console.log("IN SIDEBAR PAGES", pages);
-
   return (
     <div
       className={cn(

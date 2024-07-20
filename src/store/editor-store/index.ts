@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { EditorStore, GetTotalType, NamedItem, PageState, SectionState } from "./types";
 
-const getName = (name: string) => {
+export const getName = (name: string) => {
   return name.split("__")
 }
 

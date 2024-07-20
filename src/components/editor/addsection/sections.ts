@@ -4,15 +4,7 @@ export const sections = [
     label: "Hero"
   },
   {
-    value: "banner",
-    label: "Banner"
-  },
-  {
-    value: "carousel",
-    label: "Carousel"
-  },
-  {
-    value: "slider",
-    label: "Slider"
+    value: "title",
+    label: "Title"
   },
 ]
