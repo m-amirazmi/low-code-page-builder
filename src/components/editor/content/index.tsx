@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { EditorContentProps } from "./types";
 import { IFrame } from "../iframe";
-import { usePreviewStore } from "@/components/store/preview-store";
+import { usePreviewStore } from "@/store/preview-store";
 
 const minBreakpoints = {
   xs: "390px",
@@ -19,10 +19,12 @@ export const EditorContent: React.FC<EditorContentProps> = () => {
   const { view } = usePreviewStore();
 
   return (
-    <IFrame
-      src={process.env.NEXT_PUBLIC_PREVIEW_URL as string}
-      width={minBreakpoints[view]}
-      ref={iframeRef}
-    />
+    <div className="flex-1 p-4 overflow-hidden mx-auto">
+      <IFrame
+        src={process.env.NEXT_PUBLIC_PREVIEW_URL as string}
+        width={minBreakpoints[view]}
+        ref={iframeRef}
+      />
+    </div>
   );
 };

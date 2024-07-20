@@ -9,7 +9,7 @@ import { EditorRightPanel } from "../rightpanel";
 
 export const EditorLayout = ({ children }: EditorLayoutProps) => {
   return (
-    <div className="flex flex-col bg-neutral-200 h-screen w-screen">
+    <div className="flex flex-col bg-neutral-200 h-screen w-screen overflow-hidden">
       <EditorHeader />
       <div className="flex flex-row h-full w-full justify-between">
         <EditorActionBar />

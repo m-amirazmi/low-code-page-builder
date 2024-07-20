@@ -1,4 +1,4 @@
-import { usePreviewStore } from "@/components/store/preview-store";
+import { usePreviewStore } from "@/store/preview-store";
 import { cn } from "@/lib/utils";
 
 export const EditorRightPanel = () => {
