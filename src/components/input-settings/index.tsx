@@ -5,11 +5,9 @@ import { InputRange } from "./range";
 import { InputSelect } from "./select";
 import { InputText } from "./text";
 import { InputTextarea } from "./textarea";
-import { InputComponentProps, InputSettingsProps } from "./types";
+import { InputSettingsProps, StringTypeToComponentType } from "./types";
 
-const inputMap: {
-  [K in keyof InputComponentProps]: React.FC<InputComponentProps[K]>;
-} = {
+const inputMap: StringTypeToComponentType = {
   checkbox: InputCheckbox,
   number: InputNumber,
   radio: InputRadio,
@@ -23,8 +21,8 @@ export const InputSettings: React.FC<InputSettingsProps> = ({ settings }) => {
   return (
     <>
       {settings.map((setting, index) => {
-        const Component = inputMap[setting.type as keyof InputComponentProps];
-        return <Component key={index} {...(setting as any)} />;
+        const Component = inputMap[setting.type];
+        return <Component key={index} {...setting} />;
       })}
     </>
   );
