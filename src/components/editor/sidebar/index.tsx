@@ -1,8 +1,8 @@
+import { usePreviewStore } from "@/components/store/preview-store";
 import { cn } from "@/lib/utils";
-import { useAppSelector } from "@/redux";
 
 export const EditorSidebar = () => {
-  const view = useAppSelector((state) => state.editorResponsiveFrame.view);
+  const { view } = usePreviewStore();
 
   return (
     <div

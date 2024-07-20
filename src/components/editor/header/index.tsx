@@ -1,13 +1,12 @@
+import { usePreviewStore } from "@/components/store/preview-store";
+import { PreviewStore } from "@/components/store/preview-store/types";
 import { Button } from "@/components/ui/button";
-import { useAppDispatch } from "@/redux";
-import { setResponsiveFrame } from "@/redux/store/editor-responsive-frame";
-import { ResponsiveFrameState } from "@/redux/store/editor-responsive-frame/types";
 
 export const EditorHeader = () => {
-  const dispatch = useAppDispatch();
+  const { setView } = usePreviewStore();
 
-  const handleResponsiveSwitcher = (view: ResponsiveFrameState["view"]) => {
-    dispatch(setResponsiveFrame(view));
+  const handleResponsiveSwitcher = (view: PreviewStore["view"]) => {
+    setView(view);
   };
 
   return (

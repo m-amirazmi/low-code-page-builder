@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { EditorContentProps } from "./types";
 import { IFrame } from "../iframe";
-import { useAppSelector } from "@/redux";
+import { usePreviewStore } from "@/components/store/preview-store";
 
 const minBreakpoints = {
   xs: "390px",
@@ -16,7 +16,7 @@ const minBreakpoints = {
 export const EditorContent: React.FC<EditorContentProps> = () => {
   const iframeRef = useRef(null);
 
-  const view = useAppSelector((state) => state.editorResponsiveFrame.view);
+  const { view } = usePreviewStore();
 
   return (
     <IFrame

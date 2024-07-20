@@ -3,7 +3,7 @@ import { Info } from "@/components/ui/info";
 import { Label } from "@/components/ui/label";
 import { CheckedState } from "@radix-ui/react-checkbox";
 import { InputCheckboxProps } from "./types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const InputCheckbox: React.FC<InputCheckboxProps> = ({
   id,
