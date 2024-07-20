@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { EditorContentProps } from "./types";
 import { IFrame } from "../iframe";
 import { useAppSelector } from "@/redux";
-import { cn } from "@/lib/utils";
 
 const minBreakpoints = {
   xs: "390px",
@@ -15,10 +14,15 @@ const minBreakpoints = {
 };
 
 export const EditorContent: React.FC<EditorContentProps> = () => {
-  const [src] = useState("http://localhost:3000/preview");
   const iframeRef = useRef(null);
 
   const view = useAppSelector((state) => state.editorResponsiveFrame.view);
 
-  return <IFrame src={src} width={minBreakpoints[view]} ref={iframeRef} />;
+  return (
+    <IFrame
+      src={process.env.NEXT_PUBLIC_PREVIEW_URL as string}
+      width={minBreakpoints[view]}
+      ref={iframeRef}
+    />
+  );
 };
