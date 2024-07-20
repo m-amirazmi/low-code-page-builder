@@ -2,8 +2,8 @@ import { BaseLayoutProps } from "@/lib/types";
 import { EditorHeader } from "./header";
 import { EditorActionBar } from "./actionbar";
 import { EditorSidebar } from "./sidebar";
-import { EditorContent } from "./content";
 import { EditorRightPanel } from "./rightpanel";
+import { EditorContent } from "./content";
 
 export const EditorLayout = ({ children }: BaseLayoutProps) => {
   return (
