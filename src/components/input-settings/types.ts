@@ -15,8 +15,8 @@ export interface BaseInputSettingProps {
   onGetValue?: (value: GetValueType) => void
 }
 
-export interface StringTypeToComponentType<T> {
-  [key: string]: React.FC<T>
+export interface StringTypeToComponentType {
+  [key: string]: React.FC<any>
 }
 
 export type InputProps =
@@ -28,17 +28,7 @@ export type InputProps =
   | InputSelectProps
   | InputRangeProps
 
-export type InputComponentProps = {
-  checkbox: InputCheckboxProps
-  number: InputNumberProps
-  radio: InputRadioProps
-  text: InputTextProps
-  textarea: InputTextareaProps
-  select: InputSelectProps
-  range: InputRangeProps
-};
-
 
 export interface InputSettingsProps {
-  settings: Array<{ type: keyof InputComponentProps } & InputProps>;
+  settings: InputProps[]
 }
