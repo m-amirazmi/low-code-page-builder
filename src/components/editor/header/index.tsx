@@ -1,13 +1,24 @@
+import { usePreviewStore } from "@/store/preview-store";
+import { PreviewStore } from "@/store/preview-store/types";
 import { Button } from "@/components/ui/button";
-import { useAppDispatch } from "@/redux";
-import { setResponsiveFrame } from "@/redux/store/editor-responsive-frame";
-import { ResponsiveFrameState } from "@/redux/store/editor-responsive-frame/types";
+import { useEditorStore } from "@/store/editor-store";
 
 export const EditorHeader = () => {
-  const dispatch = useAppDispatch();
+  const { setView } = usePreviewStore();
+  const { createPage } = useEditorStore();
 
-  const handleResponsiveSwitcher = (view: ResponsiveFrameState["view"]) => {
-    dispatch(setResponsiveFrame(view));
+  const handleResponsiveSwitcher = (view: PreviewStore["view"]) => {
+    setView(view);
+  };
+
+  const handleNewPage = () => {
+    createPage({ name: "homepage", path: "/", label: "Homepage" });
+  };
+  const handleNewPage2 = () => {
+    createPage({ name: "homepage", path: "/home", label: "Homepage" });
+  };
+  const handleNewPage3 = () => {
+    createPage({ name: "homepage", path: "/homepage", label: "Homepage" });
   };
 
   return (
@@ -17,7 +28,9 @@ export const EditorHeader = () => {
         <span>Theme name / App name</span>
       </div>
       <div className="flex-1 flex items-center justify-center p-4">
-        Page dropdown
+        <Button onClick={handleNewPage}>Add page</Button>
+        <Button onClick={handleNewPage2}>Add page 2</Button>
+        <Button onClick={handleNewPage3}>Add page 3</Button>
       </div>
       <div className="flex-1 flex items-center justify-end p-4">
         <div>

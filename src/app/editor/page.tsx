@@ -1,3 +1,16 @@
+"use client";
+
+import { Sections } from "@/components/sections";
+import { useEditorStore } from "@/store/editor-store";
+
 export default function EditorPage() {
-  return <div>This is editor page</div>;
+  const { getSections } = useEditorStore();
+  const sections = getSections({ pageName: "homepage__1" });
+
+  return (
+    <div>
+      This is editor page
+      <Sections sections={sections} />
+    </div>
+  );
 }

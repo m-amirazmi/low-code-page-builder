@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { EditorContentProps } from "./types";
 import { IFrame } from "../iframe";
-import { useAppSelector } from "@/redux";
+import { usePreviewStore } from "@/store/preview-store";
 
 const minBreakpoints = {
   xs: "390px",
@@ -13,16 +13,19 @@ const minBreakpoints = {
   xl: "100%",
 };
 
-export const EditorContent: React.FC<EditorContentProps> = () => {
+export const EditorContent: React.FC<EditorContentProps> = ({ children }) => {
   const iframeRef = useRef(null);
 
-  const view = useAppSelector((state) => state.editorResponsiveFrame.view);
+  const { view } = usePreviewStore();
 
   return (
-    <IFrame
-      src={process.env.NEXT_PUBLIC_PREVIEW_URL as string}
-      width={minBreakpoints[view]}
-      ref={iframeRef}
-    />
+    <div className="flex-1 p-4 overflow-hidden mx-auto">
+      {/* <IFrame
+        src={process.env.NEXT_PUBLIC_PREVIEW_URL as string}
+        width={minBreakpoints[view]}
+        ref={iframeRef}
+      /> */}
+      {children}
+    </div>
   );
 };
