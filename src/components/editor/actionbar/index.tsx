@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { Blocks, Settings } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const EditorActionBar = () => {
   const [selectedAction, setSelectedAction] = useState<"sections" | "settings">(

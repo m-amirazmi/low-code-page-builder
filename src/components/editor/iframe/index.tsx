@@ -2,20 +2,16 @@
 
 import { forwardRef } from "react";
 import { IFrameProps } from "./types";
+import { cn } from "@/lib/utils";
 
 export const IFrame = forwardRef<HTMLIFrameElement, IFrameProps>(
-  ({ height = "100%", src, width = "100%" }, ref) => {
-    const iframeStyle: React.CSSProperties = {
-      width,
-      height,
-      border: "none",
-    };
-
+  ({ src, width = "100%" }, ref) => {
     return (
-      <div style={{ width: "100%", overflow: "hidden" }}>
+      <div className="w-full p-4 overflow-hidden mx-auto">
         <iframe
           src={src}
-          style={iframeStyle}
+          style={{ width }}
+          className={cn("shadow-lg border-none mx-auto h-full")}
           title="Responsive Preview"
           ref={ref}
         />
